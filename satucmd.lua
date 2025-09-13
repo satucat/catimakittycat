@@ -29,6 +29,10 @@ RegisterAdonisCommand('t', 1, function(ee)
 "..ee)
 end)
 
+RegisterAdonisCommand("crazy",1,function(ee)
+RunAdonisCommand(":animation" ..ee.." 33796059 true 1e4)
+end)
+
 RegisterAdonisCommand('fn', 1, function(ee)
     RunAdonisCommand(":flynoclip "..ee)
 end)
@@ -46,7 +50,12 @@ RunAdonisCommand(":chatnotifyc all 255 255 255 :t ; Fancy version of :m")
 task.wait(0.5)
 RunAdonisCommand(":chatnotifyc all 255 255 255 :fn ; Alias of Flynoclip")
 task.wait(0.5)
+RunAdonisCommand(":chatnotifyc all 255 255 255 :crazy ; Make a person go coo coo crazy")
+task.wait(0.5)
 RunAdonisCommand(":chatnotifyc all 255 255 255 :help ; This menu you see right now")
+task.wait(0.5)
+RunAdonisCommand(":chatnotifyc all 255 255 255 Warning ; Some commands require an identifier,
+such as all or me, etc")
 end)
 
 Instance.new("Sound", workspace)
