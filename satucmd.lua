@@ -53,9 +53,6 @@ task.wait(0.5)
 RunAdonisCommand(":chatnotifyc all 255 255 255 :crazy ; Make a person go coo coo crazy")
 task.wait(0.5)
 RunAdonisCommand(":chatnotifyc all 255 255 255 :help ; This menu you see right now")
-task.wait(0.5)
-RunAdonisCommand(":chatnotifyc all 255 255 255 Warning ; Some commands require an identifier,
-such as all or me, etc")
 end)
 
 Instance.new("Sound", workspace)
