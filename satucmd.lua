@@ -20,17 +20,17 @@ local result = http.Get(site)
 RunAdonisCommand(":sh Raw text: "..result)
 end)
 
-RegisterAdonisCommand('tph', 1, function(ee)
-    RunAdonisCommand(":tp "..ee.." 1,28,84")
+RegisterAdonisCommand('tph', 1, function(gg)
+    RunAdonisCommand(":tp "..gg.." 1,28,84")
 end)
 
-RegisterAdonisCommand('t', 1, function(ee)
+RegisterAdonisCommand('t', 1, function(aa)
     RunAdonisCommand(":m + SaturnCMD +
-"..ee)
+"..aa)
 end)
 
-RegisterAdonisCommand('fn', 1, function(ee)
-    RunAdonisCommand(":flynoclip "..ee)
+RegisterAdonisCommand('fn', 1, function(dd)
+    RunAdonisCommand(":flynoclip "..dd)
 end)
 
 RegisterAdonisCommand("help",1,function(a)
