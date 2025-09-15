@@ -51,6 +51,10 @@ RegisterAdonisCommand('satudance', 1, function(kk)
     RunAdonisCommand(":charaudio "..kk.. " 132000587153375 true 1 0.2 false 1 10 80")
 end)
 
+RegisterAdonisCommand('saturn', 1, function(kk)
+    RunAdonisCommand(":re | :tp me 0,0,0 | :npm me DO NOT MOVE. | !wait 1 | :freeze | :part 61 | :settransparency 61 1 | :setcollision 61 false | :floatingimage 61 7251671408 4,0,3,0 | :movepart 61 exact 0,27,0 | :weldtocharacter me 61 Head | :setanchored 61 False | :setanimation SaturnOnSchoolWiFi sit 119897128549526 | :setanimation SaturnOnSchoolWiFi fall 121115147560616 | :setanimation SaturnOnSchoolWiFi jump 109277675935772 | :setanimation SaturnOnSchoolWiFi walk 100715948449144 | :setanimation SaturnOnSchoolWiFi idle 124344646132999 | :name me [ SaturnCMD User ] | :charaudio me 133393010375601 true 1 0.6 | :ws me 25 | :thaw")
+end)
+
 RegisterAdonisCommand("iff", 1, function(x)
     local players = GetPlayersFromAdonis(x)
     for _, player in players do
@@ -72,7 +76,7 @@ end)
 
 RegisterAdonisCommand("help",1,function(a)
 RunAdonisCommand(":chatnotifyc all 0 153 255 Please wait, the commands list will take a bit to load!")
-RunAdonisCommand(":chatnotifyc all 0 153 255 + SaturnCMD Commands +
+RunAdonisCommand(":chatnotifyc all 255 255 255 + SaturnCMD Commands +
 :getraw ; Get raw text
 :check ; Look up someone's User ID
 :tph - REMOVED ; Teleport to the AH
@@ -82,6 +86,7 @@ RunAdonisCommand(":chatnotifyc all 0 153 255 + SaturnCMD Commands +
 :jre ; :re, but you keep your spot
 :crazy ; that catnip was great
 :iff ; Better :god + Credit to Lorelynx
+:saturn ; Some cool character thing, only works for the person running it
 :satudance ; My version of :dance
 :help ; This menu you see right now")
 end)
@@ -90,8 +95,8 @@ Instance.new("Sound", workspace)
 local sound = workspace.Sound
 sound.SoundId = "rbxassetid://5072915476"
 task.wait(0.1)
-RunAdonisCommand(":image all 8401596858 | !wait 0.2 | :itransparency all 1 2 Sine InOut | :wait 2 | :unimage all")
-RunAdonisCommand(":chatnotifyc all 0 153 255 [ SaturnCMD ] Loaded! You are on version Release.14.09")
+RunAdonisCommand(":image all 99892632695684 | !wait 0.2 | :itransparency all 1 2 Sine InOut | :wait 2 | :unimage all")
+RunAdonisCommand(":chatnotifyc all 0 153 255 [ SaturnCMD ] Loaded! V.Old.14.09")
 task.wait(0.5)
 RunAdonisCommand(":chatnotifyc all 255 255 255 + Type :help for a list of commands +")
 sound.Volume = 3
