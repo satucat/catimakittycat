@@ -1,5 +1,5 @@
 -- Written by SaturnOnSchoolWiFi, Trusted, at 20:19 26/09/2025
--- Cat? I'm a kitty cat, and i meow meow meow, and i meow meow meow. :3
+-- Want this taken down? Contact @mediatransferprotocol on Discord.
 
 RegisterAdonisCommand("check",1,function(id)
 local url = "https://users.roproxy.com/v1/users/"
