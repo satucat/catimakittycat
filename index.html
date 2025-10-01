@@ -1,40 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kitty :3</title>
-    <style>
-        /* Make the body take up the full screen without any margins */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-        }
-
-        /* Fullscreen iframe */
-        iframe {
-            border: none;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
+  <iframe src="https://e-z.bio/saturn"></iframe>
 
-    <!-- The iframe element that will load the URL -->
-    <iframe src="https://satucat.uk/cat.webm"></iframe>
+  <script>
+    const fullText = "Saturn";
+    let i = 0;
+    let forward = true;
+    let cursorVisible = true;
 
-    <!-- JavaScript to handle dynamic resizing (optional) -->
-    <script>
-        // This is optional but ensures the iframe adjusts dynamically on window resize.
-        window.addEventListener('resize', function() {
-            let iframe = document.querySelector('iframe');
-            iframe.style.width = window.innerWidth + 'px';
-            iframe.style.height = window.innerHeight + 'px';
-        });
-    </script>
+    function updateTitle() {
+      let text = forward ? fullText.slice(0, i) : fullText.slice(0, fullText.length - i);
+      document.title = text + (cursorVisible ? "|" : ""); 
+    }
 
+    function typeWriter() {
+      if (forward) {
+        if (i < fullText.length) {
+          i++;
+        } else {
+          forward = false;
+        }
+      } else {
+        if (i < fullText.length) {
+          i++;
+        } else {
+          i = 0;
+          forward = true;
+        }
+      }
+      updateTitle();
+    }
+
+    // Typing interval
+    setInterval(typeWriter, 300);
+
+    // Cursor blink
+    setInterval(() => {
+      cursorVisible = !cursorVisible;
+      updateTitle();
+    }, 500);
+  </script>
 </body>
 </html>
