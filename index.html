@@ -21,37 +21,39 @@
 <body>
   <iframe src="https://e-z.bio/saturn"></iframe>
 
+
   <script>
     const fullText = "Saturn";
     let i = 0;
     let forward = true;
     let cursorVisible = true;
-    let pause = 0; // counter for pauses
+    let pause = 0;
 
     function updateTitle() {
       let text = fullText.slice(0, i);
-      document.title = text + (cursorVisible ? "|" : "");
+      // Always prepend a zero-width space so it's never truly empty
+      document.title = "\u200B" + text + (cursorVisible ? "|" : "");
     }
 
     function typeWriter() {
       if (pause > 0) {
         pause--;
-        return; // wait during pause
+        return;
       }
 
       if (forward) {
         if (i < fullText.length) {
           i++;
         } else {
-          pause = 6; // pause when fully typed (6 × 250ms ≈ 1.5s)
-          forward = false; // then delete
+          pause = 6; // pause at full word
+          forward = false;
         }
       } else {
         if (i > 0) {
           i--;
         } else {
-          pause = 6; // pause when fully deleted
-          forward = true; // then type again
+          pause = 6; // pause at empty
+          forward = true;
         }
       }
       updateTitle();
