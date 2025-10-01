@@ -26,34 +26,41 @@
     let i = 0;
     let forward = true;
     let cursorVisible = true;
+    let pause = 0; // counter for pauses
 
     function updateTitle() {
-      let text = forward ? fullText.slice(0, i) : fullText.slice(0, fullText.length - i);
-      document.title = text + (cursorVisible ? "|" : ""); 
+      let text = fullText.slice(0, i);
+      document.title = text + (cursorVisible ? "|" : "");
     }
 
     function typeWriter() {
+      if (pause > 0) {
+        pause--;
+        return; // wait during pause
+      }
+
       if (forward) {
         if (i < fullText.length) {
           i++;
         } else {
-          forward = false;
+          pause = 6; // pause when fully typed (6 × 250ms ≈ 1.5s)
+          forward = false; // then delete
         }
       } else {
-        if (i < fullText.length) {
-          i++;
+        if (i > 0) {
+          i--;
         } else {
-          i = 0;
-          forward = true;
+          pause = 6; // pause when fully deleted
+          forward = true; // then type again
         }
       }
       updateTitle();
     }
 
-    // Typing interval
-    setInterval(typeWriter, 300);
+    // Typing/deleting speed
+    setInterval(typeWriter, 250);
 
-    // Cursor blink
+    // Cursor blinking
     setInterval(() => {
       cursorVisible = !cursorVisible;
       updateTitle();
