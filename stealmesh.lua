@@ -1,5 +1,3 @@
-RegisterAdonisCommand('stealmesh', 1, function(abcdefghijklmnopqrstuvwxyzunneededfunction)
-
 var player = GetLocalPlayer()
 var mouse = player:GetMouse()
 
@@ -52,5 +50,3 @@ while true do
     end
     Wait(0.5)
 end
-
-end)
