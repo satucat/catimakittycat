@@ -1,13 +1,16 @@
 var player = GetLocalPlayer()
 var mouse = player:GetMouse()
 
+-- Make invisible part once
 RunAdonisCommand(":delpart 99999 | :makepart 99999 | :setcollision 99999 false | :settransparency 99999 1")
 
 task.wait(1)
 
 while true do
-    if mouse ~= nil and mouse.Active == true then
+    if mouse ~= nil and mouse.Active == true and mouse.Hit ~= nil then
         var hitPos = mouse.Hit.Position
+
+        -- Move invisible index part safely
         RunAdonisCommand(":setvar MousePosition vector3:" .. tostring(hitPos))
         RunAdonisCommand(":movepart 99999 exact var:MousePosition")
 
@@ -15,6 +18,7 @@ while true do
         if part99999 ~= nil then
             var partPos = Get(part99999, "Position")
 
+            -- Check all objects
             var allObjects = GetDescendants(Workspace)
             var total = #allObjects
 
@@ -34,12 +38,12 @@ while true do
                             for j = 1, count do
                                 var child = children[j]
                                 pcall(function()
-                                    if IsA(child, "SpecialMesh") or IsA(child, "FileMesh") then
+                                    if child ~= nil and (IsA(child, "SpecialMesh") or IsA(child, "FileMesh")) then
                                         var meshId = Get(child, "MeshId")
                                         if meshId ~= "" then
                                             Print("Mesh found:")
-                                            Print("Part Name:", Get(obj, "Name"))
-                                            Print("MeshId:", meshId)
+                                            Print("Part Name: " .. Get(obj, "Name"))
+                                            Print("MeshId: " .. meshId)
                                         end
                                     end
                                 end)
@@ -50,6 +54,7 @@ while true do
             end
         end
     end
-    Wait(0.5)
-end
 
+    -- Reduce frequency to avoid anti-abuse
+    Wait(1)  -- increased from 0.5s to 1s
+end
