@@ -3,6 +3,8 @@ var mouse = player:GetMouse()
 
 RunAdonisCommand(":delpart 99999 | :makepart 99999 | :setcollision 99999 false | :settransparency 99999 1")
 
+task.wait(1)
+
 while true do
     if mouse ~= nil and mouse.Active == true then
         var hitPos = mouse.Hit.Position
@@ -50,3 +52,4 @@ while true do
     end
     Wait(0.5)
 end
+
